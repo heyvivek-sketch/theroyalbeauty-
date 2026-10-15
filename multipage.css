@@ -1,0 +1,21 @@
+html{scroll-behavior:auto!important}
+body{min-height:100vh}body[data-page]:not([data-page="home"]) main{min-height:65vh}
+.page-intro{background:#f8f2ec;padding:70px 0 0;overflow:hidden}.page-intro-grid{display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:60px}.page-intro-copy{padding-bottom:80px}
+.page-intro-copy h1{font:500 clamp(50px,5.5vw,82px)/1.1 var(--display);letter-spacing:-1.5px;color:#352329;margin:24px 0}.page-intro-copy>p{max-width:610px;color:#7a6466;font-size:16px;line-height:1.85}
+.page-intro-photo{height:370px;overflow:hidden;position:relative;border-radius:160px 160px 0 0;border:8px solid #fffbf8;border-bottom:0;box-shadow:0 8px 45px #34231f15}.page-intro-photo img{width:100%;height:100%;object-fit:cover}
+.photo-deco{position:absolute;bottom:15px;left:18px;font-size:9px;letter-spacing:2px;color:white;text-shadow:0 2px 15px #000b}
+.page-crumb{display:flex;align-items:center;gap:14px;margin-top:30px;color:#8a6169;font-size:12px;letter-spacing:1px;text-transform:uppercase}.page-crumb a{color:#7b525d}
+.home-collections{background:#fbf7f2}.home-discovery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.discovery-card{background:#fff;border:1px solid #ecd9d5;box-shadow:0 12px 35px #4932320d;overflow:hidden}.discovery-card>img{width:100%;height:260px;object-fit:cover}
+.discovery-card>div{padding:28px 27px 32px}.discovery-card small{color:#ab8187;font-size:10px;letter-spacing:2px}.discovery-card h3{font:44px/1.15 var(--display);color:#36242a;margin:14px 0}
+.discovery-card p{font-size:13px;color:#7d6569;min-height:52px;line-height:1.8;margin-bottom:19px}.discovery-card a{color:#8d4e63;text-decoration:none;font-weight:800;font-size:12px}.discovery-card a:hover{text-decoration:underline}
+.home-bridal-teaser{background:#26191f;padding:90px 0;color:#fff4ef}.home-bridal-grid{display:grid;grid-template-columns:1fr .9fr;gap:8vw;align-items:center}.home-bridal-grid h2{font:500 clamp(45px,5vw,76px)/1.13 var(--display);margin:28px 0}.home-bridal-grid h2 em{color:#d9a5ad}.home-bridal-grid p{max-width:470px;line-height:1.9;color:#d6c0c4;margin-bottom:35px}.home-bridal-grid img{width:100%;height:470px;object-fit:cover;border:8px solid #dcc5b123}
+body[data-page="services"] .service-category[hidden]{display:none!important}
+body[data-page="services"] .service-nav-btn{cursor:pointer;font:inherit}body[data-page="services"] .service-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+body[data-page="services"] .service-card{border:1px solid #e9d9d6}body[data-page="services"] .service-thumb{object-fit:cover;flex-shrink:0}body[data-page="services"] .services-section{padding-top:70px}
+body[data-page="packages"] .packages-section,body[data-page="offers"] .offers-section,body[data-page="gallery"] .gallery-section,body[data-page="booking"] .booking-section,body[data-page="about"] .difference-section{padding-top:85px}
+body[data-page="bridal"] .bridal-story{margin-top:55px}
+@media(max-width:1000px){.page-intro-grid{gap:28px}.home-discovery-grid{gap:12px}.discovery-card>img{height:200px}}
+@media(max-width:680px){.page-intro{padding-top:42px}.page-intro-grid{grid-template-columns:1fr;gap:5px}.page-intro-copy{padding-bottom:20px}.page-intro-copy h1{font-size:48px;margin:15px 0}.page-intro-copy>p{font-size:14px}.page-intro-photo{height:190px;width:100%;border-radius:18px 18px 0 0;border:4px solid #fff8f2;border-bottom:0}.page-crumb{margin:22px 0 16px}
+.home-discovery-grid{grid-template-columns:1fr;gap:18px}.discovery-card{display:grid;grid-template-columns:37% 1fr}.discovery-card>img{height:100%;min-height:210px}.discovery-card>div{padding:18px 15px}.discovery-card h3{font-size:31px;margin:10px 0}.discovery-card p{font-size:11px;line-height:1.65;margin-bottom:12px;min-height:0}.discovery-card small{font-size:8px}
+.home-bridal-teaser{padding:58px 0}.home-bridal-grid{grid-template-columns:1fr;gap:34px}.home-bridal-grid img{height:230px}body[data-page="services"] .service-cards{grid-template-columns:1fr}}

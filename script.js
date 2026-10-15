@@ -54,7 +54,7 @@ const categories = [
   ]}
 ];
 
-const packages = [
+// Each treatment uses its own distinct photographic image (editorial illustration, not actual salon work).\nconst servicePhotoIds = {"facials":["photo-1570172619644-dfd03ed5d881","photo-1761718210055-e83ca7e2c9ad","photo-1782159981479-0fafb56d3cd6","photo-1616394584738-fc6e612e71b9","photo-1757689373248-a6cd07328ba5","photo-1608248543803-ba4f8c70ae0b","photo-1596462502278-27bfdc403348","photo-1775642548123-04f5f3cf3435","photo-1708477199100-e4d5f56a8eb2"],"bleach":["photo-1556228578-0d85b1a4d571","photo-1608571423902-eed4a5ad8108","photo-1772429378994-15c1e8568085"],"raaga":["photo-1552693673-1bf958298935","photo-1571781926291-c477ebfd024b","photo-1596704017254-9b121068fb31"],"massage":["photo-1540555700478-4be289fbecef","photo-1745327883508-b6cd32e5dde5","photo-1639162906614-0603b0ae95fd"],"body":["photo-1515377905703-c4788e51af15","photo-1544161515-4ab6ce6db874"],"hair":["photo-1560066984-138dadb4c035","photo-1774660810725-fb04e002003d","photo-1546060432-b90a6441048f"],"waxing":["photo-1747987766141-9d1f2707dd6c","photo-1632345031435-8727f6897d53","photo-1519823551278-64ac92734fb1","photo-1674691412909-8405f0a19940","photo-1778098221994-015e8abb4336","photo-1775500835259-d3b3f6d6e2f2","photo-1662132092975-b7ee2eabe377","photo-1597999709389-e29dc41e218a"]};\n\nconst packages = [
   { id: 'insta', name: 'Royal Insta Glow Package', tag: 'An everyday glow with a royal touch', price: 1870, oldPrice: null, ribbon: 'A GLOW-UP FAVOURITE', image: 'photo-1616394584738-fc6e612e71b9', highlight: false, features: ['Curated beauty and glow care', 'An easy treat before your special plans', 'Exact inclusions to be added once confirmed'], note: 'Final package inclusions will be confirmed before booking.' },
   { id: 'bridal', name: 'Royal Bridal Glow Package', tag: 'Bridal luxury · Head-to-toe care · Royal transformation', price: 3499, oldPrice: 3999, ribbon: 'BRIDAL SIGNATURE', image: 'photo-1522335789203-aabd1fc54bc9', highlight: true, features: ['Full Body Polishing', 'Aroma Magic care (exact variant to confirm)', 'L’Oréal Professional Hair Spa', 'Honey Wax — Full Arms', 'Full Legs & Underarms', 'Aroma Magic Manicure & Pedicure', 'Threading — Eyebrows, Upper Lips & Forehead'], note: 'FREE Skin & Hair Consultation' }
 ];
@@ -96,15 +96,15 @@ function renderServices() {
   const nav = document.getElementById('service-nav');
   const sections = document.getElementById('service-sections');
   nav.innerHTML = categories.map((cat, i) => `
-    <a class="service-nav-btn ${i === 0 ? 'is-active' : ''}" href="#category-${cat.id}" data-cat="${cat.id}">
+    <button type="button" class="service-nav-btn ${i === 0 ? 'is-active' : ''}" data-cat="${cat.id}" aria-pressed="${i === 0}">
       <img src="${photo(cat.image, 120)}" alt="" loading="lazy" onerror="this.style.display='none'" />${safeAttr(cat.name)}
-    </a>`).join('');
+    </button>`).join('');
   sections.innerHTML = categories.map(cat => `
     <section class="service-category" id="category-${cat.id}" aria-labelledby="heading-${cat.id}">
       <div class="service-category-heading"><div><h3 id="heading-${cat.id}">${safeAttr(cat.name)}</h3><p>${safeAttr(cat.intro)}</p></div><span class="category-count">${String(cat.services.length).padStart(2, '0')} SERVICES</span></div>
       <div class="service-cards">${cat.services.map((service, i) => `
         <article class="service-card"><div class="service-card-top">
-          <img class="service-thumb" src="${photo(cat.image, 280)}" alt="${safeAttr(cat.name)} care" loading="lazy" onerror="this.style.visibility='hidden'" />
+          <img class="service-thumb" src="${photo(servicePhotoIds[cat.id]?.[i] || cat.image, 540)}" alt="${safeAttr(service.name)} editorial treatment photograph" loading="lazy" onerror="this.style.visibility='hidden'" />
           <div class="service-info"><h4>${safeAttr(service.name)}</h4><div class="service-meta">${service.steps ? safeAttr(service.steps + ' Steps') : 'Beauty Care'}${service.duration ? `<span>·</span>${safeAttr(service.duration)}` : ''}</div>
           <div class="service-bottom"><strong class="service-price ${service.price == null ? 'is-request' : ''}">${service.price == null ? 'Price on request' : money(service.price)}</strong><button type="button" class="service-details-button" aria-expanded="false">Details +</button></div><button class="add-cart add-cart-service" type="button" data-add-cart="service:${cat.id}:${i}">＋ Add to Cart</button></div></div>
           <div class="service-details"><p>${safeAttr(service.description)}</p><span class="step-pill">${service.steps ? service.steps + ' steps' : 'Details available on request'}${service.duration ? ' · ' + safeAttr(service.duration) : ''}</span></div>
@@ -117,24 +117,21 @@ function renderServices() {
     button.setAttribute('aria-expanded', String(expanded));
     button.textContent = expanded ? 'Close −' : 'Details +';
   });
-  nav.addEventListener('click', event => {
-    const anchor = event.target.closest('a[data-cat]');
-    if (!anchor) return;
-    nav.querySelectorAll('.service-nav-btn').forEach(element => element.classList.toggle('is-active', element === anchor));
+  const activate = (id) => {
+    if (!categories.some(cat => cat.id === id)) id = categories[0].id;
+    nav.querySelectorAll('[data-cat]').forEach(btn => {const selected = btn.dataset.cat === id;btn.classList.toggle('is-active',selected);btn.setAttribute('aria-pressed',String(selected));});
+    sections.querySelectorAll('.service-category').forEach(section => {section.hidden = section.id !== 'category-'+id;});
+  };
+  nav.addEventListener('click',event => {
+    const button=event.target.closest('[data-cat]');if(!button)return;
+    activate(button.dataset.cat);
+    history.replaceState(null,'','services.html?category='+encodeURIComponent(button.dataset.cat));
   });
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => {
-      const visible = entries.filter(e => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-      if (!visible.length) return;
-      const active = visible[0].target.id.replace('category-', '');
-      nav.querySelectorAll('.service-nav-btn').forEach(el => el.classList.toggle('is-active', el.dataset.cat === active));
-    }, {rootMargin: '-120px 0px -45% 0px', threshold: [0, .1, .25, .5]});
-    sections.querySelectorAll('.service-category').forEach(section => observer.observe(section));
-  }
+  activate(new URLSearchParams(location.search).get('category')||categories[0].id);
 }
 
 function renderPackages() {
-  document.getElementById('packages-grid').innerHTML = packages.map(pack => `
+  document.getElementById('packages-grid').innerHTML = (document.body.dataset.page === 'bridal' ? packages.filter(pack => pack.id === 'bridal') : packages).map(pack => `
     <article class="package-card ${pack.highlight ? 'highlight' : ''}">
       <div class="package-card-image"><img loading="lazy" src="${photo(pack.image, 1050)}" alt="${safeAttr(pack.name)} inspiration" onerror="this.style.visibility='hidden'" /><span class="package-ribbon">${safeAttr(pack.ribbon)}</span></div>
       <div class="package-body"><h3>${safeAttr(pack.name)}</h3><div class="package-tag">“${safeAttr(pack.tag)}”</div>
@@ -146,10 +143,8 @@ function renderPackages() {
   document.getElementById('packages-grid').addEventListener('click', event => {
     const button = event.target.closest('[data-book-package]');
     if (!button) return;
-    document.getElementById('booking-package').value = button.dataset.bookPackage;
-    document.getElementById('booking-service').value = 'Packages / Bridal';
-    document.getElementById('booking').scrollIntoView({behavior: 'smooth'});
-    document.querySelector('#booking input[name="fullName"]').focus({preventScroll: true});
+    try {sessionStorage.setItem('royalPendingPackage',button.dataset.bookPackage);} catch (_) {}
+    location.href = 'booking.html';
   });
 }
 
@@ -173,6 +168,8 @@ function setupBooking() {
   const packageSelect = document.getElementById('booking-package');
   packageSelect.innerHTML = '<option value="None">No package selected</option>' + [...packages, ...offers].map(p => `<option value="${safeAttr(p.name)}">${safeAttr(p.name)}</option>`).join('');
   packageSelect.addEventListener('change', () => { if (packageSelect.value !== 'None') serviceSelect.value = 'Packages / Bridal'; });
+  let pendingPackage=null;try{pendingPackage=sessionStorage.getItem('royalPendingPackage');}catch(_){}
+  if(pendingPackage && [...packageSelect.options].some(x=>x.value===pendingPackage)){packageSelect.value=pendingPackage;serviceSelect.value='Packages / Bridal';try{sessionStorage.removeItem('royalPendingPackage');}catch(_){}}
   const today = new Date();
   const localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
   const dateInput = document.getElementById('booking-date');
@@ -209,7 +206,7 @@ function setupBooking() {
       });
       result.append(copy);
     }
-    result.scrollIntoView({behavior:'smooth',block:'nearest'});
+    result.scrollIntoView({behavior:'auto',block:'nearest'});
   });
   dateInput.addEventListener('change', () => dateInput.setCustomValidity(''));
 }
@@ -229,7 +226,7 @@ function setupNavigation() {
   document.addEventListener('keydown', event => {if (event.key === 'Escape') close();});
   document.addEventListener('click', event => {if (!menu.hidden && !event.target.closest('.site-header')) close();});
   const backToTop = document.getElementById('back-to-top');
-  backToTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+  backToTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'auto'}));
   window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.scrollY > 900), {passive:true});
     if (whatsappNumber) {const link = document.getElementById('quick-whatsapp');link.href='https://wa.me/'+whatsappNumber;link.target='_blank';link.rel='noopener noreferrer';}
   document.getElementById('footer-year').textContent = new Date().getFullYear();
@@ -257,11 +254,11 @@ function renderCart() {
   const list=document.getElementById('cart-lines'); const summary=document.getElementById('cart-subtotal');
   const existing=cart.map(line=>({line, product:lookupItem(line.key)})).filter(x=>x.product);
   let total=0,unknown=0;
-  list.innerHTML= existing.length ? existing.map(({line,product})=>{if(product.price!=null)total+=product.price*line.qty;else unknown++;return `<div class="cart-line"><div><strong>${safeAttr(product.name)}</strong><small>${product.price==null?'Price to confirm':money(product.price)+' indicative'} · ${safeAttr(product.type)}</small></div><div class="cart-line-actions"><button type="button" data-cart-update="minus" data-cart-key="${safeAttr(line.key)}" aria-label="Decrease ${safeAttr(product.name)}">−</button><span>${line.qty}</span><button type="button" data-cart-update="plus" data-cart-key="${safeAttr(line.key)}" aria-label="Increase ${safeAttr(product.name)}">+</button><button type="button" class="cart-remove" data-cart-update="remove" data-cart-key="${safeAttr(line.key)}" aria-label="Remove ${safeAttr(product.name)}">×</button></div></div>`;}).join('') : '<div class="cart-empty"><span>✦</span><strong>Your beauty ritual starts here.</strong><p>Browse services or special offers and tap “Add to Cart”.</p><a href="#services" id="cart-browse">Explore Services ↗</a></div>';
+  list.innerHTML= existing.length ? existing.map(({line,product})=>{if(product.price!=null)total+=product.price*line.qty;else unknown++;return `<div class="cart-line"><div><strong>${safeAttr(product.name)}</strong><small>${product.price==null?'Price to confirm':money(product.price)+' indicative'} · ${safeAttr(product.type)}</small></div><div class="cart-line-actions"><button type="button" data-cart-update="minus" data-cart-key="${safeAttr(line.key)}" aria-label="Decrease ${safeAttr(product.name)}">−</button><span>${line.qty}</span><button type="button" data-cart-update="plus" data-cart-key="${safeAttr(line.key)}" aria-label="Increase ${safeAttr(product.name)}">+</button><button type="button" class="cart-remove" data-cart-update="remove" data-cart-key="${safeAttr(line.key)}" aria-label="Remove ${safeAttr(product.name)}">×</button></div></div>`;}).join('') : '<div class="cart-empty"><span>✦</span><strong>Your beauty ritual starts here.</strong><p>Browse services or special offers and tap “Add to Cart”.</p><a href="services.html" id="cart-browse">Explore Services ↗</a></div>';
   summary.innerHTML = `<span>Estimated known-price total</span><strong>${money(total)}</strong>${unknown?`<small>${unknown} item type(s) awaiting price confirmation</small>`:''}<small>Final pricing, bundles and availability will be confirmed by the salon.</small>`;
   document.getElementById('cart-checkout').disabled = !existing.length;
-  const bookingSummary=document.getElementById('booking-cart-summary');bookingSummary.hidden=!existing.length;
-  bookingSummary.innerHTML=existing.length?`<strong>YOUR CART (${count} ITEM${count!==1?'S':''})</strong><ul>${existing.map(({line,product})=>`<li>${safeAttr(product.name)} × ${line.qty}</li>`).join('')}</ul><small>Estimated total for priced items: ${money(total)} · Final quote pending confirmation.</small>`:'';
+  const bookingSummary=document.getElementById('booking-cart-summary');if(bookingSummary){bookingSummary.hidden=!existing.length;
+  bookingSummary.innerHTML=existing.length?`<strong>YOUR CART (${count} ITEM${count!==1?'S':''})</strong><ul>${existing.map(({line,product})=>`<li>${safeAttr(product.name)} × ${line.qty}</li>`).join('')}</ul><small>Estimated total for priced items: ${money(total)} · Final quote pending confirmation.</small>`:'';}
 }
 function setupCart() {
   document.addEventListener('click', event=>{
@@ -273,15 +270,15 @@ function setupCart() {
   document.getElementById('cart-backdrop').addEventListener('click',closeCart);
   document.getElementById('cart-close').addEventListener('click',closeCart);
   document.getElementById('cart-clear').addEventListener('click',()=>{cart=[];persistCart();});
-  document.getElementById('cart-checkout').addEventListener('click',()=>{closeCart();document.getElementById('booking-service').value=cart.some(line=>!line.key.startsWith('service:')) ? 'Packages / Bridal' : (categories.find(c=>c.id===cart[0]?.key.split(':')[1])?.name || 'Other / Consultation');document.getElementById('booking').scrollIntoView({behavior:'smooth'});});
+  document.getElementById('cart-checkout').addEventListener('click',()=>{closeCart();if(document.body.dataset.page!=='booking'){location.href='booking.html';return;}document.getElementById('booking-service').value=cart.some(line=>!line.key.startsWith('service:'))?'Packages / Bridal':(categories.find(c=>c.id===cart[0]?.key.split(':')[1])?.name||'Other / Consultation');document.getElementById('booking-form').scrollIntoView({behavior:'auto'});});
   document.addEventListener('keydown',event=>{if(event.key==='Escape')closeCart();});
   renderCart();
 }
 
-renderServices();
-renderPackages();
-renderOffers();
-renderGallery();
-setupBooking();
+if(document.getElementById('service-nav'))renderServices();
+if(document.getElementById('packages-grid'))renderPackages();
+if(document.getElementById('offers-grid'))renderOffers();
+if(document.getElementById('gallery-grid'))renderGallery();
+if(document.getElementById('booking-form'))setupBooking();
 setupNavigation();
 setupCart();

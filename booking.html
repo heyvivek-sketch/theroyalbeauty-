@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#20171b" />
+  <meta name="description" content="The Royal Beauty — salon and beauty rituals delivered with royal elegance. Explore facials, hair care, body polishing, and beautiful bridal packages. Book a personal appointment." />
+  <meta property="og:title" content="The Royal Beauty | Beauty, Beautifully Yours" />
+  <meta property="og:description" content="Your personal beauty ritual, at our salon or in the comfort of your home." />
+  <meta property="og:type" content="website" />
+  <title>BOOK AN APPOINTMENT | The Royal Beauty</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" /><link rel="stylesheet" href="multipage.css" />
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body data-page="booking">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="announcement"><span class="announcement-star">✦</span> THE ROYAL BEAUTY <span class="announcement-divider"></span> <span>WHERE SELF-CARE FEELS EXTRAORDINARY</span> <span class="announcement-star">✦</span></div>
+  <header class="site-header" id="site-header">
+    <div class="header-shell content-width">
+      <a class="brand" href="index.html" aria-label="The Royal Beauty home">
+        <img src="assets/royal-mark.svg" width="62" height="62" alt="Royal Beauty circular monogram" />
+        <span class="brand-wordmark"><strong>THE ROYAL BEAUTY</strong><small>AT HOME & IN SALON</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="packages.html">Packages</a><a href="offers.html">Special Offers</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+      </nav>
+      <a class="header-book" href="booking.html">Book an Appointment <span aria-hidden="true">↗</span></a>
+      <button class="header-cart cart-trigger" id="header-cart" type="button" aria-label="Open enquiry cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8h16l-1.3 12H5.3L4 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><span class="cart-count" data-cart-count>0</span></button>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    </div>
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden>
+      <a href="index.html"><span>⌂</span> Home</a>
+      <a href="services.html"><span>✿</span> Services</a>
+      <a href="packages.html"><span>♕</span> Packages</a><a href="offers.html"><span>✧</span> Special Offers</a>
+      <a href="booking.html"><span>▤</span> Book Appointment</a>
+      <a href="about.html"><span>✧</span> About Us</a>
+      <a href="bridal.html"><span>♡</span> Bridal</a>
+      <a href="gallery.html"><span>▦</span> Gallery</a>
+      <a href="booking.html"><span>✉</span> Contact</a>
+    </nav>
+  </header>
+
+<main id="main"><section class="page-intro"><div class="content-width page-intro-grid"><div class="page-intro-copy"><span class="eyebrow dark-eyebrow">✦ BOOK AN APPOINTMENT</span><h1>Reserve your royal moment.</h1><p>Choose your preferred service and send an enquiry to our team on WhatsApp.</p><div class="page-crumb"><a href="index.html">Home</a><span>/</span><span>BOOK AN APPOINTMENT</span></div></div><div class="page-intro-photo"><img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=1100&q=82" alt="BOOK AN APPOINTMENT beauty editorial inspiration" loading="eager"><span class="photo-deco">THE ROYAL BEAUTY</span></div></div></section><section class="section booking-section" id="booking">
+      <div class="content-width booking-layout">
+        <div class="booking-intro"><span class="eyebrow dark-eyebrow">04 — YOUR APPOINTMENT</span><h2>Every royal moment<br />starts <em>here.</em></h2><p>Tell us what you'd love. Share your preferred service, location and date. We'll help you take the next step.</p><div class="booking-art"><div class="booking-art-photo" role="img" aria-label="Luxury spa and beauty care"></div><div class="booking-art-label">A LITTLE TIME, JUST FOR YOU <span>✦</span></div></div><div class="booking-small"><span>✧</span><div><strong>Need help choosing?</strong><p>Tell us the occasion and your beauty goals in the notes below.</p></div></div></div>
+        <form class="booking-form" id="booking-form">
+          <div class="form-heading"><span class="form-kicker">THE ROYAL BEAUTY</span><h3>Request an Appointment</h3><p>Complete the details below to prepare your booking request.</p></div>
+          <div class="form-grid">
+            <label>Full Name <span>*</span><input name="fullName" type="text" autocomplete="name" placeholder="Your full name" required maxlength="80" /></label>
+            <label>Phone Number <span>*</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile number" required pattern="[0-9+() -]{10,18}" /></label>
+            <label>WhatsApp Number<input name="whatsapp" type="tel" inputmode="tel" placeholder="If different from phone" pattern="[0-9+() -]{0,18}" /></label>
+            <label>Service Location <span>*</span><select name="location" required><option value="Home Service">Home Service</option><option value="Salon Visit">Salon Visit</option></select></label>
+            <label>Service Category <span>*</span><select name="service" id="booking-service" required></select></label>
+            <label>Preferred Package <select name="package" id="booking-package"></select></label>
+            <label>Preferred Date <span>*</span><input name="date" id="booking-date" type="date" required /></label>
+            <label>Preferred Time <span>*</span><select name="time" required><option value="">Select time</option><option>09:00 AM – 12:00 PM</option><option>12:00 PM – 03:00 PM</option><option>03:00 PM – 06:00 PM</option><option>After 06:00 PM</option></select></label>
+            <label class="field-wide">Location / Area <span>*</span><input name="area" type="text" placeholder="Your area or neighbourhood" required maxlength="140" /></label>
+            <label class="field-wide">Special Requests<textarea name="notes" rows="3" maxlength="600" placeholder="Occasion, questions, preferences, or anything else…"></textarea></label>
+          </div>
+          <div class="booking-cart-summary" id="booking-cart-summary" hidden></div>
+          <div class="form-consent"><label class="consent-label"><input type="checkbox" name="consent" required /><span>I agree to be contacted about my appointment request.</span></label></div>
+          <button class="button button-dark form-submit" type="submit">Continue to WhatsApp <span>↗</span></button>
+          <p class="booking-disclaimer" id="booking-note">This prepares a request — your appointment is confirmed only after we respond.</p>
+          <div class="form-result" id="form-result" hidden role="status"></div>
+        </form>
+      </div>
+    </section>
+
+    </main>  <footer class="site-footer"><div class="content-width footer-main"><div class="footer-brand"><a href="index.html" class="footer-brand-line"><img src="assets/royal-mark.svg" alt="The Royal Beauty logo" width="64" height="64" /><span>THE ROYAL<br />BEAUTY</span></a><p>Luxury beauty care, delivered with warmth and a touch of royal elegance.</p></div><div><strong>Explore</strong><a href="services.html">Services</a><a href="packages.html">Packages</a><a href="offers.html">Special Offers</a><a href="bridal.html">Bridal Beauty</a><a href="gallery.html">Gallery</a></div><div><strong>Discover</strong><a href="about.html">Our Story</a><a href="booking.html">Book Appointment</a><a href="booking.html">Contact</a></div><div><strong>Get in Touch</strong><p>Salon & at-home beauty experiences</p><a href="booking.html">Send a Booking Request ↗</a></div></div><div class="content-width footer-bottom"><small>© <span id="footer-year">2026</span> THE ROYAL BEAUTY. ALL RIGHTS RESERVED.</small><small class="developer-credit">Built by <a href="https://growthzync.in" target="_blank" rel="noopener noreferrer" aria-label="Visit GrowthZync website">GrowthZync</a></small></div></footer>
+
+  <div class="mobile-quickbar" aria-label="Quick appointment links"><button type="button" class="quick-cart cart-trigger" id="quick-cart" aria-label="View cart"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16l-1.3 12H5.3L4 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><span>MY CART <b data-cart-count>0</b></span></button><a href="booking.html" id="quick-whatsapp"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2.8A9.3 9.3 0 0 0 4.1 17l-1.2 4.1 4.4-1.1A9.3 9.3 0 1 0 12 2.8Z"/><path d="M8.7 8.2c-.6 0-1 1-1 1.6 0 2 2.7 5.1 5.4 6.2 1.7.7 2.7-.3 2.8-1l-2.3-1.2-1 1s-1.4-.7-2.3-1.8c-.9-1.1-1.1-1.9-1.1-1.9l1-1.1-.8-1.9Z"/></svg><span>WHATSAPP</span></a><a class="active" href="booking.html"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5.5" width="17" height="15" rx="2"/><path d="M7 3v5m10-5v5M3.5 10.5h17m-12 5h7"/></svg><span>BOOK</span></a></div>
+  <div class="cart-backdrop" id="cart-backdrop" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-heading" aria-hidden="true" tabindex="-1">
+    <div class="cart-drawer-head"><div><span class="eyebrow dark-eyebrow">YOUR BEAUTY PICKS</span><h2 id="cart-heading">Your Royal Cart</h2></div><button class="cart-close" id="cart-close" type="button" aria-label="Close cart">×</button></div>
+    <p class="cart-explain">This is an enquiry cart, not an online payment. The salon will confirm services, prices and timing.</p>
+    <div class="cart-lines" id="cart-lines"></div>
+    <div class="cart-drawer-foot"><div id="cart-subtotal" class="cart-subtotal"></div><button type="button" id="cart-checkout" class="button button-dark">Continue to Booking <span>↗</span></button><button type="button" id="cart-clear" class="cart-clear">Clear cart</button></div>
+  </aside>
+  <div id="cart-toast" class="cart-toast" hidden role="status"></div>
+  <button class="back-to-top" type="button" aria-label="Back to top" id="back-to-top">↑</button>
+</body>
+</html>
