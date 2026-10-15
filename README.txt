@@ -16,14 +16,14 @@ DEPLOY MANUALLY TO EXISTING NETLIFY SITE
    code to GitHub ALONE will not update that site until connected in Netlify.
 5. No build, npm, server, database or external backend is required.
 
-CONTACT DETAILS NEEDED FOR AUTOMATED WHATSAPP
-Edit config.js:
-  whatsappNumber: '919876543210'  // country code, digits only
-  callNumber: '+919876543210'
-Until configured, the booking form prepares a message and allows the customer
-to copy it. No message gets sent automatically; user must tap Send in WhatsApp.
-The floating bar has Cart, WhatsApp/Booking, Book. Mobile Call was deliberately
-replaced with Cart in the latest requirements.
+WHATSAPP BOOKINGS
+The business WhatsApp number is configured in config.js:
+  whatsappNumber: '917460079859'  // +91 74600 79859
+  callNumber: ''                   // not yet separately confirmed
+When a customer submits the booking form, WhatsApp opens with a pre-filled
+enquiry message; customers must tap Send themselves. The direct WhatsApp
+button opens the same business number. The floating bar has Cart, WhatsApp,
+Book; Mobile Call was replaced with Cart as requested.
 
 ENQUIRY CART (NOT A PAYMENT SYSTEM)
 Add to cart > view items/quantity > Continue to Booking > fill form > WhatsApp
