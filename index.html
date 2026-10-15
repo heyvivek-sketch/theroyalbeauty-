@@ -14,13 +14,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" /><link rel="stylesheet" href="multipage.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="multipage.css" />
+  <link rel="stylesheet" href="finish.css" />
+  <link rel="stylesheet" href="motion.css" />
   <script src="config.js" defer></script>
   <script src="script.js" defer></script>
+  <script src="motion.js" defer></script>
 </head>
 <body data-page="home">
   <a class="skip-link" href="#main">Skip to content</a>
-  <div class="announcement"><span class="announcement-star">✦</span> THE ROYAL BEAUTY <span class="announcement-divider"></span> <span>WHERE SELF-CARE FEELS EXTRAORDINARY</span> <span class="announcement-star">✦</span></div>
+  <div class="announcement"><span class="announcement-star">✦</span> THE ROYAL BEAUTY <span class="announcement-divider"></span> <span>BEAUTY AT HOME · BEAUTY IN SALON</span> <span class="announcement-star">✦</span></div>
   <header class="site-header" id="site-header">
     <div class="header-shell content-width">
       <a class="brand" href="index.html" aria-label="The Royal Beauty home">
@@ -28,7 +32,7 @@
         <span class="brand-wordmark"><strong>THE ROYAL BEAUTY</strong><small>AT HOME & IN SALON</small></span>
       </a>
       <nav class="desktop-nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
+        <a href="index.html" aria-current="page">Home</a>
         <a href="services.html">Services</a>
         <a href="packages.html">Packages</a><a href="offers.html">Special Offers</a>
         <a href="about.html">About</a>
@@ -36,63 +40,78 @@
       </nav>
       <a class="header-book" href="booking.html">Book an Appointment <span aria-hidden="true">↗</span></a>
       <button class="header-cart cart-trigger" id="header-cart" type="button" aria-label="Open enquiry cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8h16l-1.3 12H5.3L4 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><span class="cart-count" data-cart-count>0</span></button>
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+<details class="mobile-nav-details" id="mobile-nav-details"><summary class="menu-toggle" aria-label="Open website navigation"><span class="menu-bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="sr-only">Menu</span></summary>
+<nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation"><div class="mobile-menu-title"><span>THE ROYAL BEAUTY</span><small>Explore our world of beauty</small></div>
+<a href="index.html"><span aria-hidden="true">⌂</span> Home <span class="nav-arrow">↗</span></a>
+<a href="services.html"><span aria-hidden="true">✿</span> All Services <span class="nav-arrow">↗</span></a>
+<a href="packages.html"><span aria-hidden="true">♕</span> Royal Packages <span class="nav-arrow">↗</span></a>
+<a href="offers.html"><span aria-hidden="true">✧</span> Special Offers <span class="nav-arrow">↗</span></a>
+<a href="bridal.html"><span aria-hidden="true">♡</span> Bridal Beauty <span class="nav-arrow">↗</span></a>
+<a href="gallery.html"><span aria-hidden="true">▦</span> Gallery <span class="nav-arrow">↗</span></a>
+<a href="about.html"><span aria-hidden="true">✦</span> About Us <span class="nav-arrow">↗</span></a>
+<a href="booking.html"><span aria-hidden="true">▤</span> Book Appointment <span class="nav-arrow">↗</span></a>
+<div class="mobile-menu-bottom"><span>Bookings & enquiries</span><a href="https://wa.me/917460079859" rel="noopener noreferrer" target="_blank">Chat with us on WhatsApp ↗</a></div></nav></details>
     </div>
-    <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden>
-      <a href="index.html"><span>⌂</span> Home</a>
-      <a href="services.html"><span>✿</span> Services</a>
-      <a href="packages.html"><span>♕</span> Packages</a><a href="offers.html"><span>✧</span> Special Offers</a>
-      <a href="booking.html"><span>▤</span> Book Appointment</a>
-      <a href="about.html"><span>✧</span> About Us</a>
-      <a href="bridal.html"><span>♡</span> Bridal</a>
-      <a href="gallery.html"><span>▦</span> Gallery</a>
-      <a href="booking.html"><span>✉</span> Contact</a>
-    </nav>
   </header>
 
-<main id="main"><section class="hero" id="home" aria-labelledby="hero-heading">
-      <div class="hero-orbit" aria-hidden="true"></div>
-      <div class="content-width hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow hero-eyebrow"><span class="eyebrow-line"></span> LUXURY BEAUTY, REIMAGINED</div>
-          <h1 id="hero-heading">Be Royal.<br /><em>Be <span>Beautiful.</span></em></h1>
-          <p class="hero-subtitle">Luxury beauty care, delivered with royal elegance. From glowing facials to bridal rituals, enjoy premium salon care in the comfort of your home or at our salon.</p>
-          <div class="hero-actions">
-            <a class="button button-rose" href="booking.html">Book Your Royal Ritual <span>↗</span></a>
-            <a class="text-link" href="services.html">Explore Services <span>↗</span></a>
-            <a class="button button-outline" href="packages.html">Explore Packages <span>↗</span></a>
-            <a class="text-link" href="offers.html">Explore Special Offers <span>↗</span></a>
-          </div>
-          <div class="hero-proof"><span class="proof-stars">✦ ✦ ✦</span><span>FACIALS <b>·</b> HAIR <b>·</b> BRIDAL <b>·</b> SELF-CARE</span></div>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-photo-frame">
-            <img class="hero-photo" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="Woman enjoying a relaxing premium facial beauty treatment" fetchpriority="high" onerror="this.style.display='none'" />
-            <div class="hero-photo-shade"></div>
-            <div class="hero-photo-text"><span>THE ROYAL EXPERIENCE</span><strong>SALON <i>AT</i><br />HOME</strong><small>Beautifully delivered to your doorstep</small></div>
-          </div>
-          <div class="hero-stamp"><span>✦</span><strong>ROYAL<br />CARE</strong><small>FOR YOU</small></div>
-          <span class="corner-bloom" aria-hidden="true">✳</span>
-        </div>
-      </div>
-      <div class="hero-bottom"><span>01 / A NEW KIND OF BEAUTY</span><a href="services.html">SCROLL TO DISCOVER <span>↓</span></a></div>
-    </section>
+<main id="main"><section aria-labelledby="hero-heading" class="hero" id="home">
+<div aria-hidden="true" class="hero-orbit"></div>
+<div class="content-width hero-grid">
+<div class="hero-copy">
+<div class="eyebrow hero-eyebrow"><span class="eyebrow-line"></span> LUXURY BEAUTY, REIMAGINED</div>
+<h1 id="hero-heading">Be Royal.<br/><em>Be <span>Beautiful.</span></em></h1>
+<p class="hero-subtitle">Luxury beauty care, delivered with royal elegance. From glowing facials to bridal rituals, enjoy premium salon care in the comfort of your home or at our salon.</p>
+<div class="hero-actions">
+<a class="button button-rose" href="booking.html">Book Your Royal Ritual <span>↗</span></a>
+<a class="text-link" href="services.html">Explore Services <span>↗</span></a>
+<a class="button button-outline" href="packages.html">Explore Packages <span>↗</span></a>
+<a class="text-link" href="offers.html">Explore Special Offers <span>↗</span></a>
+</div>
+<div class="hero-proof"><span class="proof-stars">✦ ✦ ✦</span><span>FACIALS <b>·</b> HAIR <b>·</b> BRIDAL <b>·</b> SELF-CARE</span></div>
+</div>
+<div class="hero-visual">
+<div class="hero-photo-frame">
+<img alt="Woman enjoying a relaxing premium facial beauty treatment" class="hero-photo" fetchpriority="high" onerror="this.style.display='none'" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&amp;fit=crop&amp;w=1100&amp;q=85"/>
+<div class="hero-photo-shade"></div>
+<div class="hero-photo-text"><span>THE ROYAL EXPERIENCE</span><strong>SALON <i>AT</i><br/>HOME</strong><small>Beautifully delivered to your doorstep</small></div>
+</div>
+<div class="hero-stamp"><span>✦</span><strong>ROYAL<br/>CARE</strong><small>FOR YOU</small></div>
+<span aria-hidden="true" class="corner-bloom">✳</span>
+</div>
+</div>
+<div class="hero-bottom"><span>01 / A NEW KIND OF BEAUTY</span><a href="services.html">DISCOVER OUR SERVICES <span>↗</span></a></div>
+</section><section aria-label="Our highlights" class="promise-bar"><div class="content-width promise-grid">
+<div class="promise"><span class="promise-icon">✿</span><div><strong>Thoughtful Beauty</strong><small>Care made just for you</small></div></div>
+<div class="promise"><span class="promise-icon">⌂</span><div><strong>Salon or Your Home</strong><small>Your space, your choice</small></div></div>
+<div class="promise"><span class="promise-icon">✧</span><div><strong>Royal Experience</strong><small>Little details, lovely moments</small></div></div>
+<div class="promise"><span class="promise-icon">♡</span><div><strong>Bridal &amp; Beyond</strong><small>Glow for every occasion</small></div></div>
+</div></section><section class="section home-collections"><div class="content-width"><div class="section-head services-head"><div><span class="eyebrow dark-eyebrow">CURATED JUST FOR YOU</span><h2>Explore our <em>world of beauty.</em></h2></div><p>Find the care you love without scrolling through every treatment. Open a collection to view details and book.</p></div><div class="home-discovery-grid">
+<article class="discovery-card"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=850&q=85" alt="Facial treatment" loading="lazy"/><div><small>01 / GLOW & SKIN</small><h3>Services</h3><p>Facials, hair, massage, body polishing and more.</p><a href="services.html">View all services <span>↗</span></a></div></article>
+<article class="discovery-card"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=850&q=85" alt="Bridal beauty makeup" loading="lazy"/><div><small>02 / SIGNATURE CARE</small><h3>Royal Packages</h3><p>Indulgent packages for everyday and bridal glow.</p><a href="packages.html">Explore packages <span>↗</span></a></div></article>
+<article class="discovery-card"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=850&q=85" alt="Spa and wellness treatments" loading="lazy"/><div><small>03 / SELECTED FOR YOU</small><h3>Special Offers</h3><p>Curated beauty combinations and thoughtful value.</p><a href="offers.html">Discover offers <span>↗</span></a></div></article>
+</div></div></section>
+<section class="section return-section" aria-labelledby="royal-difference"><div class="content-width">
+<div class="section-heading-split"><div><span class="eyebrow dark-eyebrow">THE ROYAL DIFFERENCE</span><h2 id="royal-difference">Where every service <em>feels royal.</em></h2></div><p>Beauty is more than a service. From glow-care to bridal preparations, we make room for your choice, your comfort and the little details that matter.</p></div>
+<div class="benefit-grid">
+<article class="benefit-card"><span class="benefit-icon">✧</span><h3>Premium Care</h3><p>Treatment and product selections are discussed for the service you choose, with clarity on inclusions before booking.</p></article>
+<article class="benefit-card"><span class="benefit-icon">♡</span><h3>Personal Attention</h3><p>Choose the look you have in mind and share your beauty concerns or preferences at consultation.</p></article>
+<article class="benefit-card"><span class="benefit-icon">⌂</span><h3>Salon or Home</h3><p>Enquire about enjoying your chosen beauty experience at our salon or from your own home.</p></article>
+<article class="benefit-card"><span class="benefit-icon">♕</span><h3>Special Moments</h3><p>From simple self-care to bridal glow, explore thoughtful bundles for occasions big and small.</p></article>
+</div><a class="inline-arrow-link" href="about.html">Get to know The Royal Beauty <span>↗</span></a></div></section>
+<section class="section home-package-preview" aria-labelledby="signature-preview"><div class="content-width">
+<div class="section-heading-split"><div><span class="eyebrow dark-eyebrow">SIGNATURE EXPERIENCES</span><h2 id="signature-preview">Your glow, <em>your ritual.</em></h2></div><p>Our royal collection is designed around everyday radiance and extra-special occasions.</p></div>
+<div class="signature-preview-grid">
+<article class="signature-mini-card"><div class="signature-mini-img"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&amp;fit=crop&amp;w=900&amp;q=80" loading="lazy" alt="Woman receiving a refreshing facial treatment" /></div><div class="signature-mini-copy"><small>EVERYDAY GLOW</small><h3>Royal Insta Glow</h3><p>A curated pampering experience for that instantly refreshed feeling. Full inclusions are confirmed before appointment.</p><div class="signature-price">₹1,870</div><a href="packages.html" class="inline-arrow-link">View package details ↗</a></div></article>
+<article class="signature-mini-card"><div class="signature-mini-img"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&amp;fit=crop&amp;w=900&amp;q=80" loading="lazy" alt="Beauty and makeup artistry for bridal occasions" /></div><div class="signature-mini-copy"><small>BRIDAL BEAUTY</small><h3>Royal Bridal Glow</h3><p>Head-to-toe bridal care with polishing, facial care, waxing, mani–pedi, threading and a complimentary consultation.</p><div class="signature-price">₹3,499</div><a href="packages.html" class="inline-arrow-link">View package details ↗</a></div></article>
+</div></div></section>
+<section class="section home-offers-preview" aria-labelledby="offer-preview"><div class="content-width">
+<div class="section-heading-split"><div><span class="eyebrow dark-eyebrow">BEAUTY EDIT</span><h2 id="offer-preview">More ways to <em>treat yourself.</em></h2></div><p>Browse 11 curated combination ideas, compare their inclusions, and send an enquiry for a personalised final quote.</p></div>
+<div class="beauty-split"><img loading="lazy" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&amp;fit=crop&amp;w=950&amp;q=85" alt="Relaxing spa experience and self-care products"/><div><small>FACIALS · WAXING · MANI-PEDI · MORE</small><h3>The little extras make it special.</h3><p>Discover full-body beauty combinations, quick glow rituals and tailored bridal preparation. Offer prices and availability are confirmed by the salon before you book.</p><a href="offers.html" class="button button-dark">Explore All Offers <span>↗</span></a></div></div>
+</div></section>
+<section class="section royal-how" aria-labelledby="how-title"><div class="content-width"><div class="section-head centered"><span class="eyebrow dark-eyebrow">THE EASY WAY TO BOOK</span><h2 id="how-title">Your beauty moment in <em>three steps.</em></h2></div><div class="how-grid"><article><span>01</span><h3>Explore</h3><p>Browse treatments and packages, see known prices, and discover what suits you.</p></article><article><span>02</span><h3>Choose</h3><p>Add any services or combinations to your enquiry cart, or go straight to booking.</p></article><article><span>03</span><h3>Confirm</h3><p>Share your preferred time on WhatsApp. We’ll confirm availability and final prices directly.</p></article></div><div class="section-center"><a class="button button-rose" href="booking.html">Book Your Beauty Ritual <span>↗</span></a></div></div></section>
+<section class="home-bridal-teaser"><div class="content-width home-bridal-grid"><div><span class="eyebrow light-eyebrow">THE BRIDAL EDIT</span><h2>For your most <em>beautiful moments.</em></h2><p>Explore personal bridal care, our Royal Bridal Glow Package and beautiful preparation for every celebration.</p><a class="button button-cream" href="bridal.html">Visit Bridal Beauty <span>↗</span></a></div><img src="https://images.unsplash.com/photo-1774660810725-fb04e002003d?auto=format&fit=crop&w=1000&q=82" loading="lazy" alt="Bridal hairstylist creating an elegant updo"/></div></section><section class="section home-gallery-preview"><div class="content-width"><div class="section-heading-split"><div><span class="eyebrow dark-eyebrow">THE BEAUTY EDIT</span><h2>Inspired by <em>beauty.</em></h2></div><p>A gentle mix of skincare, hair and bridal inspirations. Take a look around and discover what makes you feel special.</p></div><div class="home-mini-gallery"><img loading="lazy" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Facial treatment inspiration"><img loading="lazy" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Hair styling inspiration"><img loading="lazy" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Beauty makeup inspiration"></div><div class="section-center"><a class="inline-arrow-link" href="gallery.html">Explore the Beauty Gallery ↗</a></div></div></section><section class="closing-section" id="contact"><div class="content-width closing-inner"><span class="eyebrow light-eyebrow">BEAUTY IS CALLING</span><h2>Ready to feel<br/><em>royal?</em></h2><p>A little care goes a long way. We'd love to help you plan your next beauty experience.</p><a class="button button-rose" href="booking.html">Reserve Your Moment <span>↗</span></a><div aria-hidden="true" class="closing-star">✳</div></div></section></main>  <footer class="site-footer"><div class="content-width footer-main"><div class="footer-brand"><a href="index.html" class="footer-brand-line"><img src="assets/royal-mark.svg" alt="The Royal Beauty logo" width="64" height="64" /><span>THE ROYAL<br />BEAUTY</span></a><p>Luxury beauty care, delivered with warmth and a touch of royal elegance.</p></div><div><strong>Explore</strong><a href="services.html">Services</a><a href="packages.html">Packages</a><a href="offers.html">Special Offers</a><a href="bridal.html">Bridal Beauty</a><a href="gallery.html">Gallery</a></div><div><strong>Discover</strong><a href="about.html">Our Story</a><a href="booking.html">Book Appointment</a><a href="booking.html">Contact</a></div><div><strong>Get in Touch</strong><p>Salon & at-home beauty experiences</p><a href="booking.html">Send a Booking Request ↗</a></div></div><div class="content-width footer-bottom"><small>© <span id="footer-year">2026</span> THE ROYAL BEAUTY. ALL RIGHTS RESERVED.</small><small class="developer-credit">Built by <a href="https://growthzync.in" target="_blank" rel="noopener noreferrer">GrowthZync</a></small></div></footer>
 
-    <section class="promise-bar" aria-label="Our highlights"><div class="content-width promise-grid">
-      <div class="promise"><span class="promise-icon">✿</span><div><strong>Thoughtful Beauty</strong><small>Care made just for you</small></div></div>
-      <div class="promise"><span class="promise-icon">⌂</span><div><strong>Salon or Your Home</strong><small>Your space, your choice</small></div></div>
-      <div class="promise"><span class="promise-icon">✧</span><div><strong>Royal Experience</strong><small>Little details, lovely moments</small></div></div>
-      <div class="promise"><span class="promise-icon">♡</span><div><strong>Bridal & Beyond</strong><small>Glow for every occasion</small></div></div>
-    </div></section>
-
-    <section class="section home-collections"><div class="content-width"><div class="section-head services-head"><div><span class="eyebrow dark-eyebrow">CURATED JUST FOR YOU</span><h2>Explore our <em>world of beauty.</em></h2></div><p>Find the care you love without scrolling through every treatment. Open a collection to view details and book.</p></div><div class="home-discovery-grid">
-<article class="discovery-card"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=850&q=82" alt="Professional facial skincare treatment" loading="lazy"><div><small>01 / GLOW & SKIN</small><h3>Services</h3><p>Facials, hair, massage, body polishing and more.</p><a href="services.html">View all services ↗</a></div></article>
-<article class="discovery-card"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=850&q=82" alt="Bridal beauty inspiration" loading="lazy"><div><small>02 / SIGNATURE CARE</small><h3>Royal Packages</h3><p>Indulgent packages for everyday and bridal glow.</p><a href="packages.html">Explore packages ↗</a></div></article>
-<article class="discovery-card"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=850&q=82" alt="Spa treatments" loading="lazy"><div><small>03 / SELECTED FOR YOU</small><h3>Special Offers</h3><p>Curated beauty combinations and thoughtful value.</p><a href="offers.html">Discover offers ↗</a></div></article>
-</div></div></section><section class="home-bridal-teaser"><div class="content-width home-bridal-grid"><div><span class="eyebrow light-eyebrow">THE BRIDAL EDIT</span><h2>For your most <em>beautiful moments.</em></h2><p>Explore personalised bridal beauty care and preparation for every celebration.</p><a class="button button-cream" href="bridal.html">Visit Bridal Beauty ↗</a></div><img src="https://images.unsplash.com/photo-1774660810725-fb04e002003d?auto=format&fit=crop&w=1000&q=82" alt="Bridal hairstylist creating an updo" loading="lazy"></div></section><section class="closing-section" id="contact"><div class="content-width closing-inner"><span class="eyebrow light-eyebrow">BEAUTY IS CALLING</span><h2>Ready to feel<br /><em>royal?</em></h2><p>A little care goes a long way. We'd love to help you plan your next beauty experience.</p><a href="booking.html" class="button button-rose">Reserve Your Moment <span>↗</span></a><div class="closing-star" aria-hidden="true">✳</div></div></section>
-</main>  <footer class="site-footer"><div class="content-width footer-main"><div class="footer-brand"><a href="index.html" class="footer-brand-line"><img src="assets/royal-mark.svg" alt="The Royal Beauty logo" width="64" height="64" /><span>THE ROYAL<br />BEAUTY</span></a><p>Luxury beauty care, delivered with warmth and a touch of royal elegance.</p></div><div><strong>Explore</strong><a href="services.html">Services</a><a href="packages.html">Packages</a><a href="offers.html">Special Offers</a><a href="bridal.html">Bridal Beauty</a><a href="gallery.html">Gallery</a></div><div><strong>Discover</strong><a href="about.html">Our Story</a><a href="booking.html">Book Appointment</a><a href="booking.html">Contact</a></div><div><strong>Get in Touch</strong><p>Salon & at-home beauty experiences</p><a href="booking.html">Send a Booking Request ↗</a></div></div><div class="content-width footer-bottom"><small>© <span id="footer-year">2026</span> THE ROYAL BEAUTY. ALL RIGHTS RESERVED.</small><small class="developer-credit">Built by <a href="https://growthzync.in" target="_blank" rel="noopener noreferrer" aria-label="Visit GrowthZync website">GrowthZync</a></small></div></footer>
-
-  <div class="mobile-quickbar" aria-label="Quick appointment links"><button type="button" class="quick-cart cart-trigger" id="quick-cart" aria-label="View cart"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16l-1.3 12H5.3L4 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><span>MY CART <b data-cart-count>0</b></span></button><a href="booking.html" id="quick-whatsapp"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2.8A9.3 9.3 0 0 0 4.1 17l-1.2 4.1 4.4-1.1A9.3 9.3 0 1 0 12 2.8Z"/><path d="M8.7 8.2c-.6 0-1 1-1 1.6 0 2 2.7 5.1 5.4 6.2 1.7.7 2.7-.3 2.8-1l-2.3-1.2-1 1s-1.4-.7-2.3-1.8c-.9-1.1-1.1-1.9-1.1-1.9l1-1.1-.8-1.9Z"/></svg><span>WHATSAPP</span></a><a class="active" href="booking.html"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5.5" width="17" height="15" rx="2"/><path d="M7 3v5m10-5v5M3.5 10.5h17m-12 5h7"/></svg><span>BOOK</span></a></div>
+  <div class="mobile-quickbar" aria-label="Quick appointment links"><button type="button" class="quick-cart cart-trigger" id="quick-cart" aria-label="View cart"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16l-1.3 12H5.3L4 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><span>MY CART <b data-cart-count>0</b></span></button><a href="https://wa.me/917460079859" target="_blank" rel="noopener noreferrer" id="quick-whatsapp"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2.8A9.3 9.3 0 0 0 4.1 17l-1.2 4.1 4.4-1.1A9.3 9.3 0 1 0 12 2.8Z"/><path d="M8.7 8.2c-.6 0-1 1-1 1.6 0 2 2.7 5.1 5.4 6.2 1.7.7 2.7-.3 2.8-1l-2.3-1.2-1 1s-1.4-.7-2.3-1.8c-.9-1.1-1.1-1.9-1.1-1.9l1-1.1-.8-1.9Z"/></svg><span>WHATSAPP</span></a><a class="active" href="booking.html"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5.5" width="17" height="15" rx="2"/><path d="M7 3v5m10-5v5M3.5 10.5h17m-12 5h7"/></svg><span>BOOK</span></a></div>
   <div class="cart-backdrop" id="cart-backdrop" hidden></div>
   <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-heading" aria-hidden="true" tabindex="-1">
     <div class="cart-drawer-head"><div><span class="eyebrow dark-eyebrow">YOUR BEAUTY PICKS</span><h2 id="cart-heading">Your Royal Cart</h2></div><button class="cart-close" id="cart-close" type="button" aria-label="Close cart">×</button></div>

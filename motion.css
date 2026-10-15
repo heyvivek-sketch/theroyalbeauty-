@@ -1,0 +1,32 @@
+/* THE ROYAL BEAUTY — refined, accessible text motion.
+   Content remains fully visible with JavaScript disabled. */
+@keyframes royalHeadingEntrance {
+  from { opacity: 0; transform: translate3d(0, 23px, 0); filter: blur(3px); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+}
+@keyframes royalTextEntrance {
+  from { opacity: 0; transform: translate3d(0, 17px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+/* Reveal only after the intersection observer has been installed. */
+.motion-ready .royal-reveal:not(.royal-visible) { opacity: 0; }
+.motion-ready .royal-reveal.royal-visible {
+  animation: royalTextEntrance 680ms cubic-bezier(.22,1,.36,1) both;
+  animation-delay: var(--royal-delay, 0ms);
+}
+.motion-ready .royal-reveal.royal-title.royal-visible {
+  animation-name: royalHeadingEntrance;
+  animation-duration: 860ms;
+}
+/* The buttons stay stable when the mouse isn't hovering. */
+@media (hover: hover) and (pointer: fine) {
+  main a.button, main button.button { transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease, box-shadow 250ms ease, translate 250ms cubic-bezier(.22,1,.36,1); }
+  main a.button:hover, main button.button:hover { translate: 0 -3px; box-shadow: 0 9px 22px rgba(46,23,31,.12); }
+  main .inline-arrow-link { transition: color 200ms ease, text-decoration-color 200ms ease, translate 240ms ease; }
+  main .inline-arrow-link:hover { translate: 3px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready .royal-reveal:not(.royal-visible) { opacity: 1 !important; }
+  .motion-ready .royal-reveal.royal-visible { animation: none !important; opacity: 1 !important; filter: none !important; transform: none !important; }
+  main a.button, main button.button, main .inline-arrow-link { transition: none !important; translate: none !important; }
+}

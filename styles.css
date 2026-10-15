@@ -34,7 +34,8 @@
 .cart-backdrop[hidden],.cart-toast[hidden],.booking-cart-summary[hidden]{display:none!important}
 .hero-photo-frame{background:linear-gradient(135deg,#ae868e,#624853)}
 @media(max-width:350px){.header-shell{gap:5px}.brand{gap:7px}.brand img{width:43px;height:43px}.brand-wordmark strong{font-size:13px;letter-spacing:0}.brand-wordmark small{font-size:5.4px;letter-spacing:1.1px}.header-cart{width:32px;height:32px}.menu-toggle{width:27px;min-width:27px}.hero-stamp{right:-18px}}
+
 /* Developer credit in copyright footer */
-.footer-bottom .developer-credit{font-size:11px;letter-spacing:.4px;color:#bca9a8}
-.footer-bottom .developer-credit a{color:#e7b89e;text-decoration:underline;text-decoration-color:rgba(231,184,158,.45);text-underline-offset:3px;font-weight:700;transition:color .2s ease}
-.footer-bottom .developer-credit a:hover,.footer-bottom .developer-credit a:focus-visible{color:#fff2e8;text-decoration-color:currentColor}
+.footer-bottom .developer-credit{font-size:11px;letter-spacing:.4px;color:#bca9a8}.footer-bottom .developer-credit a{color:#e7b89e;text-decoration:underline;text-underline-offset:3px;font-weight:700}.footer-bottom .developer-credit a:hover{color:#fff2e8}
+
+/* ===== MULTI-PAGE EDITORIAL SITE ===== */
