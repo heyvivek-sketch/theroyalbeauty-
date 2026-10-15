@@ -265,12 +265,26 @@ function setupNavigation() {
   // Native <details> means hamburger navigation works even without JavaScript.
   const dropdown = document.getElementById('mobile-nav-details');
   if (dropdown) {
-    const close = () => { dropdown.open = false; document.body.classList.remove('menu-open'); };
-    dropdown.addEventListener('toggle', () => document.body.classList.toggle('menu-open', dropdown.open));
-    dropdown.querySelectorAll('nav a').forEach(link => link.addEventListener('click', close));
-    document.addEventListener('keydown', event => { if (event.key === 'Escape' && dropdown.open) close(); });
-    document.addEventListener('pointerdown', event => { if (dropdown.open && !dropdown.contains(event.target)) close(); });
-    window.addEventListener('resize', () => { if (innerWidth > 930 && dropdown.open) close(); }, { passive: true });
+    const trigger = dropdown.querySelector('summary');
+    const updateTop = () => {
+      const header = document.getElementById('site-header');
+      const y = header?.getBoundingClientRect().bottom ?? 78;
+      document.documentElement.style.setProperty('--royal-menu-top', Math.max(0, Math.round(y)) + 'px');
+    };
+    const close = (focus = false) => {
+      dropdown.open = false;
+      document.body.classList.remove('royal-menu-open');
+      if (focus) trigger?.focus({preventScroll:true});
+    };
+    dropdown.addEventListener('toggle', () => {
+      if (dropdown.open) updateTop();
+      document.body.classList.toggle('royal-menu-open', dropdown.open);
+    });
+    dropdown.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () => close()));
+    document.addEventListener('keydown', event => { if(event.key==='Escape' && dropdown.open) close(true); });
+    document.addEventListener('pointerdown', event => { if(dropdown.open && !dropdown.contains(event.target)) close(); });
+    window.addEventListener('resize', () => { if(innerWidth>930) close(); else if(dropdown.open) updateTop(); }, {passive:true});
+    window.visualViewport?.addEventListener('resize', () => { if(dropdown.open) updateTop(); }, {passive:true});
   }
   const backToTop = document.getElementById('back-to-top');
   if (backToTop) {
